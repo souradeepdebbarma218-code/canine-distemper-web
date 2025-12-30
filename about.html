@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About Distemper</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --green:#13ec5b;
+  --green-soft:#eafff1;
+  --dark:#14532d;
+  --text:#374151;
+  --card:#ffffff;
+}
+
+*{ box-sizing:border-box }
+
+body{
+  margin:0;
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:linear-gradient(135deg,#eafff1,#f6fff9);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* PAGE ENTER */
+.page{
+  width:100%;
+  max-width:1100px;      /* desktop look preserved */
+  margin:auto;           /* center on all devices */
+  opacity:0;
+  transform:translateY(20px);
+  animation:pageEnter .8s ease forwards;
+}
+
+@keyframes pageEnter{
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* HEADER */
+.header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:18px 16px;
+  justify-content:center;
+  position:relative;
+}
+
+.header h2{
+  font-size:clamp(20px,5vw,28px);
+  margin:0;
+  text-align:center;
+}
+
+.back-btn{
+  position:absolute;
+  left:16px;
+  top:16px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:var(--green);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  text-decoration:none;
+  color:#000;
+  transition:transform .25s ease;
+}
+
+.back-btn:hover{ transform:translateY(-4px) }
+
+/* HERO (AUTO SCALE HEIGHT) */
+.hero{
+  margin:0 16px;
+  height:clamp(220px,45vw,450px);  /* THIS FIXES MOBILE */
+  border-radius:40px;
+  overflow:hidden;
+  background:var(--green-soft);
+}
+
+.hero img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* SECTION */
+.section{
+  padding:28px 16px;
+}
+
+.section h3{
+  color:var(--dark);
+  margin-bottom:18px;
+  font-size:clamp(18px,4.5vw,22px);
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:26px;
+  padding:20px;
+  text-align:center;
+  box-shadow:0 14px 30px rgba(0,0,0,.08);
+  cursor:pointer;
+  transition:transform .25s ease;
+}
+
+.card:hover{ transform:translateY(-6px) }
+.card.active{ outline:3px solid #b9f7d3 }
+
+.card-details{
+  display:none;
+  margin-top:14px;
+  font-size:clamp(14px,3.6vw,15px);
+}
+
+.card.active .card-details{ display:block }
+
+.icon{
+  width:60px;
+  height:60px;
+  background:var(--green);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  margin:0 auto 12px;
+}
+
+/* ACCORDION */
+.accordion{
+  margin:20px 16px;
+  background:var(--card);
+  border-radius:26px;
+  padding:20px;
+  box-shadow:0 14px 30px rgba(0,0,0,.08);
+}
+
+.accordion-header{
+  font-weight:600;
+  color:var(--dark);
+  cursor:pointer;
+  font-size:clamp(15px,4vw,17px);
+}
+
+.accordion-content{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:.4s;
+}
+
+.accordion.open .accordion-content{
+  max-height:900px;
+  opacity:1;
+  margin-top:14px;
+}
+
+.video-link{
+  display:inline-block;
+  margin-top:12px;
+  font-weight:600;
+  color:#065f46;
+  text-decoration:none;
+  font-size:clamp(14px,3.8vw,15px);
+}
+
+/* EMERGENCY */
+.emergency li{
+  list-style:none;
+  margin-bottom:10px;
+  font-size:clamp(14px,3.8vw,16px);
+}
+
+.emergency li::before{ content:"🚨 " }
+
+/* FOOTER */
+.footer-nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:18px;
+  margin:40px 16px;
+}
+
+.nav-btn{
+  padding:16px 40px;
+  background:var(--green);
+  color:#000;
+  border-radius:26px;
+  font-weight:bold;
+  text-decoration:none;
+  box-shadow:0 10px 24px rgba(19,236,91,.35);
+  font-size:clamp(14px,3.8vw,16px);
+}
+
+.nav-btn:hover{
+  transform:translateY(-6px);
+}
+
+/* SMALL MOBILE SAFETY */
+@media (max-width:480px){
+  .nav-btn{
+    width:92%;
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <a href="index.html" class="back-btn">←</a>
+  <h2>About Canine Distemper</h2>
+</div>
+
+<!-- HERO IMAGE -->
+<!-- HERO IMAGE -->
+<div class="hero">
+    <img src="assets/images/about.jpeg" alt="Canine Distemper Awareness">
+</div>
+
+<!-- TRANSMISSION -->
+<div class="section">
+<h3>Transmission Risks</h3>
+<div class="grid">
+
+<div class="card" onclick="activateCard(this)">
+  <div class="icon">💨</div>
+  <b>Airborne</b>
+  <p>Through coughing & sneezing</p>
+  <div class="card-details">Virus spreads via respiratory droplets.</div>
+</div>
+
+<div class="card" onclick="activateCard(this)">
+  <div class="icon">🥣</div>
+  <b>Shared Bowls</b>
+  <p>Contaminated food & water</p>
+  <div class="card-details">Virus survives on surfaces.</div>
+</div>
+
+<div class="card" onclick="activateCard(this)">
+  <div class="icon">🐾</div>
+  <b>Strays & Wildlife</b>
+  <p>Indirect exposure</p>
+  <div class="card-details">Wild animals can silently carry virus.</div>
+</div>
+
+<div class="card" onclick="activateCard(this)">
+  <div class="icon">🤝</div>
+  <b>Direct Contact</b>
+  <p>Nose-to-nose contact</p>
+  <div class="card-details">Close contact spreads infection.</div>
+</div>
+
+</div>
+</div>
+
+<!-- SYMPTOMS -->
+<div class="accordion" onclick="toggleAccordion(this)">
+<div class="accordion-header">Symptoms & Progression</div>
+<div class="accordion-content">
+<ul>
+<li>Fever, eye & nasal discharge</li>
+<li>Vomiting and diarrhea</li>
+<li>Seizures, twitching</li>
+<li>Hard paw pads</li>
+</ul>
+<a class="video-link" target="_blank"
+href="https://www.youtube.com/results?search_query=canine+distemper+symptoms">
+▶ Watch symptoms & progression
+</a>
+</div>
+</div>
+
+<!-- PREVENTION (FIXED WITH YOUTUBE LINK) -->
+<div class="accordion" onclick="toggleAccordion(this)">
+<div class="accordion-header">Prevention & Vaccination</div>
+<div class="accordion-content">
+<ul>
+<li>DHPP / 9-in-1 vaccine</li>
+<li>First dose at 6–8 weeks</li>
+<li>Booster every 3–4 weeks</li>
+<li>Annual booster</li>
+</ul>
+
+<a class="video-link" target="_blank"
+href="https://www.youtube.com/results?search_query=puppy+vaccination+schedule+DHPP">
+▶ Watch puppy vaccination & prevention guide
+</a>
+</div>
+</div>
+
+<!-- EMERGENCY -->
+<div class="accordion" onclick="toggleAccordion(this)">
+<div class="accordion-header">Emergency Warning Signs</div>
+<div class="accordion-content">
+<ul class="emergency">
+<li>Continuous seizures</li>
+<li>Sudden blindness</li>
+<li>High fever</li>
+<li>Breathing difficulty</li>
+</ul>
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-nav">
+    <a href="index.html" class="nav-btn back-home">← Back to Home</a>
+    <a href="symptoms.html" class="nav-btn primary">🧠 Symptom Checker</a>
+
+</div>
+
+</div>
+
+<script>
+function activateCard(card){
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('active'));
+  card.classList.toggle('active');
+}
+function toggleAccordion(el){
+  document.querySelectorAll('.accordion').forEach(a=>{
+    if(a!==el) a.classList.remove('open');
+  });
+  el.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>

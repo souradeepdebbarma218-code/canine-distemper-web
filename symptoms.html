@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Symptom Checker – Canine Health</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- FIXED CSS PATH -->
+<link rel="stylesheet" href="css/symptoms.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="header">
+        <!-- FIXED BACK LINK -->
+        <a href="index.html" class="back">←</a>
+        <h1>🧠 Symptom Checker</h1>
+    </div>
+
+    <!-- IMAGE UPLOAD -->
+    <div class="card">
+        <h2>📷 Upload Dog Images (optional)</h2>
+        <div id="uploadBox" class="upload-box">
+            <span>Click to upload</span>
+            <div id="previewGrid"></div>
+        </div>
+        <input type="file" id="imageInput" accept="image/*" multiple hidden>
+        <p class="note">Images are used only as context (not diagnosis).</p>
+    </div>
+
+    <!-- SYMPTOMS -->
+    <div class="card">
+        <h2>🫁 Respiratory & Eyes</h2>
+        <div class="chips">
+            <div class="chip" data-symptom="coughing">Coughing</div>
+            <div class="chip" data-symptom="sneezing">Sneezing</div>
+            <div class="chip" data-symptom="nasal">Nasal discharge</div>
+            <div class="chip" data-symptom="eye">Eye discharge</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>🍽 Gastrointestinal</h2>
+        <div class="chips">
+            <div class="chip" data-symptom="vomiting">Vomiting</div>
+            <div class="chip" data-symptom="diarrhea">Diarrhea</div>
+            <div class="chip" data-symptom="appetite">Loss of appetite</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>🧠 Neurological & Physical</h2>
+        <div class="chips">
+            <div class="chip" data-symptom="seizures">Seizures</div>
+            <div class="chip" data-symptom="twitching">Twitching</div>
+            <div class="chip" data-symptom="circling">Circling</div>
+            <div class="chip" data-symptom="footpads">Hardened footpads</div>
+            <div class="chip" data-symptom="fever">Fever</div>
+        </div>
+    </div>
+
+    <!-- ENERGY -->
+    <div class="card">
+        <h2>🔋 Energy Level</h2>
+        <input type="range" id="energy" min="0" max="100" value="60">
+        <div class="energy-labels">
+            <span>➖ Lethargic</span>
+            <span>➕ Active</span>
+        </div>
+    </div>
+
+    <div id="warning" class="warning hidden">
+        ⚠️ Please select at least one symptom.
+    </div>
+
+    <div class="cta">
+        <button onclick="analyze()">Analyze Symptoms</button>
+    </div>
+
+    <!-- AI RESULT -->
+    <div id="aiBox" class="ai hidden">
+        <span id="riskLabel" class="risk"></span>
+
+        <h3>Possible Conditions</h3>
+        <ul id="diseaseList"></ul>
+
+        <h3>AI Guidance</h3>
+        <ul id="aiPoints"></ul>
+
+        <p class="disclaimer">
+            Educational guidance only. Consult a veterinarian.
+        </p>
+    </div>
+
+</div>
+
+<!-- ACTION BUTTONS -->
+<div class="vet-next hidden" id="actionButtons">
+    <button class="vet-btn" onclick="generateReport()">
+        Download Health Report (PDF)
+    </button>
+    <a href="vet-locator.html" class="vet-btn">
+        🏥 Find Nearby Vet
+    </a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- FIXED JS PATH -->
+<script src="js/symptoms.js"></script>
+
+</body>
+</html>

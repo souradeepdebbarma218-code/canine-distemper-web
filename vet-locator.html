@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vet Help</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/vet-locator.css">
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="bg-image"></div>
+
+<!-- PET HELPER -->
+<div class="pet-helper">
+    <div class="pet-speech">
+        🐶 Hi! <br>
+        May I help you with <br>
+        your dog or pet?
+    </div>
+
+    <div class="pet-dog">
+        <div class="ear left"></div>
+        <div class="ear right"></div>
+        <div class="face">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="nose"></div>
+        </div>
+        <div class="body"></div>
+        <div class="tail"></div>
+    </div>
+</div>
+
+<div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+        <a href="symptoms.html" class="back">←</a>
+        <h1>🏥 Vet Help</h1>
+    </div>
+
+    <!-- ALERT -->
+    <div class="alert">
+        Select symptoms to get medical guidance.
+    </div>
+
+    <!-- EMERGENCY -->
+    <div class="card emergency pulse">
+        <h2>🚨 Emergency Veterinary Care</h2>
+        <p class="address">24×7 emergency hospitals near you</p>
+        <div class="meta">
+            <span>⚠️ Critical Care</span>
+            <span>📍 Live Location</span>
+            <span>⭐ Google Verified</span>
+        </div>
+        <div class="actions">
+            <button class="btn emergency-btn" onclick="openNearbyVets('emergency')">
+                🚑 Open Emergency Vets
+            </button>
+        </div>
+    </div>
+
+    <!-- NORMAL -->
+    <div class="card">
+        <h2>🐶 Nearby Veterinary Clinics</h2>
+        <p class="address">Vaccination • Checkups • Treatment</p>
+        <div class="meta">
+            <span>🩺 General Care</span>
+            <span>📍 Around You</span>
+            <span>⭐ Rated Clinics</span>
+        </div>
+        <div class="actions">
+            <button class="btn" onclick="openNearbyVets('normal')">
+                📍 Open Clinics on Map
+            </button>
+        </div>
+    </div>
+
+    <!-- BREED TIPS -->
+    <div class="card">
+        <h2>🐕 Breed-Based Health Guide</h2>
+
+        <select id="breedSelect">
+            <option value="">Select Dog Breed</option>
+            <option value="labrador">Labrador</option>
+            <option value="german">German Shepherd</option>
+            <option value="pug">Pug</option>
+            <option value="golden">Golden Retriever</option>
+            <option value="indie">Indian Indie</option>
+            <!-- EXTRA BREEDS -->
+
+            <option value="beagle">Beagle</option>
+            <option value="rottweiler">Rottweiler</option>
+            <option value="doberman">Doberman Pinscher</option>
+            <option value="boxer">Boxer</option>
+            <option value="dachshund">Dachshund</option>
+            <option value="greatdane">Great Dane</option>
+            <option value="husky">Siberian Husky</option>
+            <option value="malamute">Alaskan Malamute</option>
+            <option value="akita">Akita</option>
+            <option value="shiba">Shiba Inu</option>
+            <option value="samoyed">Samoyed</option>
+            <option value="chowchow">Chow Chow</option>
+            <option value="bordercollie">Border Collie</option>
+            <option value="australianshepherd">Australian Shepherd</option>
+            <option value="belgianmalinois">Belgian Malinois</option>
+            <option value="sheltie">Shetland Sheepdog</option>
+
+            <option value="pomeranian">Pomeranian</option>
+            <option value="shihtzu">Shih Tzu</option>
+            <option value="lhasaapso">Lhasa Apso</option>
+            <option value="maltese">Maltese</option>
+            <option value="bichonfrise">Bichon Frise</option>
+            <option value="papillon">Papillon</option>
+            <option value="yorkshire">Yorkshire Terrier</option>
+            <option value="chihuahua">Chihuahua</option>
+            <option value="pekingese">Pekingese</option>
+            <option value="frenchbulldog">French Bulldog</option>
+            <option value="englishbulldog">English Bulldog</option>
+            <option value="bostonterrier">Boston Terrier</option>
+
+            <option value="cocker">Cocker Spaniel</option>
+            <option value="springer">English Springer Spaniel</option>
+            <option value="setter">Irish Setter</option>
+            <option value="weimaraner">Weimaraner</option>
+            <option value="vizsla">Vizsla</option>
+            <option value="pointer">Pointer</option>
+            <option value="retrieverflat">Flat-Coated Retriever</option>
+            <option value="chesapeake">Chesapeake Bay Retriever</option>
+
+            <option value="bullmastiff">Bullmastiff</option>
+            <option value="mastiff">English Mastiff</option>
+            <option value="neapolitan">Neapolitan Mastiff</option>
+            <option value="cane">Cane Corso</option>
+            <option value="tosa">Tosa Inu</option>
+            <option value="presa">Presa Canario</option>
+
+            <option value="basenji">Basenji</option>
+            <option value="whippet">Whippet</option>
+            <option value="greyhound">Greyhound</option>
+            <option value="afghan">Afghan Hound</option>
+            <option value="borzoi">Borzoi</option>
+            <option value="saluki">Saluki</option>
+
+            <option value="terrier">Fox Terrier</option>
+            <option value="jackrussell">Jack Russell Terrier</option>
+            <option value="bullterrier">Bull Terrier</option>
+            <option value="staffordshire">Staffordshire Bull Terrier</option>
+            <option value="airedale">Airedale Terrier</option>
+            <option value="scottish">Scottish Terrier</option>
+            <option value="westie">West Highland Terrier</option>
+
+            <option value="dalmatian">Dalmatian</option>
+            <option value="newfoundland">Newfoundland</option>
+            <option value="bernese">Bernese Mountain Dog</option>
+            <option value="stbernard">St Bernard</option>
+            <option value="leonberger">Leonberger</option>
+
+            <option value="rajapalayam">Rajapalayam</option>
+            <option value="kombai">Kombai</option>
+            <option value="mudhol">Mudhol Hound</option>
+            <option value="kanni">Kanni</option>
+            <option value="chippiparai">Chippiparai</option>
+            <option value="bakharwal">Bakharwal Dog</option>
+            <option value="gaddi">Gaddi Kutta</option>
+            <option value="himachali">Himachali Hound</option>
+
+            <option value="mexicanhairless">Xoloitzcuintli</option>
+            <option value="pharaoh">Pharaoh Hound</option>
+            <option value="ibizan">Ibizan Hound</option>
+            <option value="finnishspitz">Finnish Spitz</option>
+            <option value="keeshond">Keeshond</option>
+            <option value="norwegianelkhound">Norwegian Elkhound</option>
+            <option value="swissmountain">Greater Swiss Mountain Dog</option>
+            <option value="pyrenees">Great Pyrenees</option>
+
+            <option value="unknown">Mixed / Unknown Breed</option>
+
+        </select>
+
+        <div id="breedTip" class="breed-tip"></div>
+    </div>
+
+</div>
+
+<script src="js/vet-locator.js"></script>
+</body>
+</html>

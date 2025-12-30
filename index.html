@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Canine Distemper Awareness</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- =====================
+        STYLES
+===================== -->
+<style>
+
+/* ===== GLOBAL ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #eafff1, #f6fff9);
+    color: #1f2937;
+    overflow-x: hidden;
+}
+
+/* ===== PAGE LOAD EFFECT ===== */
+.page {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: pageEnter 0.9s ease forwards;
+}
+
+@keyframes pageEnter {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== HERO IMAGE ===== */
+.hero {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px 10px;
+}
+
+.hero img {
+    width: 92%;
+    max-width: 1000px;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 36px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+}
+
+/* ===== CONTENT ===== */
+.content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px 80px;
+    text-align: center;
+}
+
+/* ===== TITLE BOX ===== */
+.title-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #e6fff0, #f2fff8);
+    padding: 16px 34px;
+    border-radius: 20px;
+    margin: 25px auto;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+.title-box h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #14532d;
+}
+
+/* ===== INTRO TEXT ===== */
+.intro-text {
+    font-size: 16.5px;
+    color: #374151;
+    margin-bottom: 40px;
+}
+
+/* ===== INFO CARDS ===== */
+.info {
+    max-width: 760px;
+    margin: 0 auto 50px;
+}
+
+.info-card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 24px;
+    margin-bottom: 22px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.25s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-6px);
+}
+
+.info-header {
+    padding: 22px 26px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #14532d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.info-icon {
+    font-size: 24px;
+    transition: transform 0.35s ease;
+}
+
+/* Collapsible content */
+.info-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 26px;
+    transition: max-height 0.5s ease, padding 0.3s ease;
+    text-align: left;
+}
+
+.info-card.active .info-content {
+    max-height: 600px;
+    padding: 10px 26px 26px;
+}
+
+.info-card.active .info-icon {
+    transform: rotate(45deg);
+}
+
+/* ===== CTA BUTTON ===== */
+.cta {
+    margin-top: 40px;
+}
+
+.cta a {
+    display: inline-flex;
+    padding: 16px 46px;
+    background: #13ec5b;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 22px;
+    box-shadow: 0 12px 26px rgba(19,236,91,0.45);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cta a:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 30px rgba(19,236,91,0.55);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .hero img {
+        height: 300px;
+        border-radius: 28px;
+    }
+
+    .title-box h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero img {
+        height: 220px;
+        border-radius: 22px;
+    }
+
+    .title-box {
+        padding: 14px 20px;
+    }
+
+    .title-box h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .intro-text {
+        font-size: 15px;
+    }
+
+    .info-header {
+        font-size: 16px;
+        padding: 18px 20px;
+    }
+
+    .info-content {
+        font-size: 14px;
+    }
+
+    .cta a {
+        width: 100%;
+        justify-content: center;
+        padding: 14px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero img {
+        height: 190px;
+    }
+
+    .content {
+        padding-bottom: 60px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================
+        PAGE
+===================== -->
+<div class="page">
+
+    <!-- HERO IMAGE -->
+    <div class="hero">
+        <!-- replace image path if needed -->
+        <img src="assets/images/welcomepic.jpeg" alt="Healthy puppies playing">
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <div class="title-box">
+            <h1>🩺 Canine Distemper Awareness 🐶</h1>
+        </div>
+
+        <p class="intro-text">
+            Learn how early awareness, vaccination, and timely care can save lives.
+        </p>
+
+        <!-- INFO SECTION -->
+        <div class="info">
+
+            <div class="info-card">
+                <div class="info-header">
+                    What is Canine Distemper?
+                    <span class="info-icon">+</span>
+                </div>
+                <div class="info-content">
+                    <p>
+                        Canine distemper is a highly contagious viral disease affecting
+                        dogs, especially puppies and unvaccinated animals. It impacts
+                        the respiratory, digestive, and nervous systems.
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-header">
+                    Common Symptoms
+                    <span class="info-icon">+</span>
+                </div>
+                <div class="info-content">
+                    <p>
+                        Symptoms include fever, nasal discharge, coughing, vomiting,
+                        diarrhea, seizures, muscle twitching, and hardened paw pads.
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-header">
+                    Why Early Awareness Matters
+                    <span class="info-icon">+</span>
+                </div>
+                <div class="info-content">
+                    <p>
+                        Early detection and vaccination greatly improve survival rates
+                        and prevent spread to other dogs in the community.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CTA -->
+        <div class="cta">
+            <a href="about.html">🩺 Get Started</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- =====================
+        SCRIPT
+===================== -->
+<script>
+document.querySelectorAll(".info-header").forEach(header => {
+    header.addEventListener("click", () => {
+        header.parentElement.classList.toggle("active");
+    });
+});
+</script>
+
+</body>
+</html>

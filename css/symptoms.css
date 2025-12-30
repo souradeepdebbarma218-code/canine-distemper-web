@@ -1,0 +1,290 @@
+/* =====================
+   BASE LAYOUT (FLUID)
+===================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #eafff1, #f6fff9);
+    color: #1f2937;
+    overflow-x: hidden;
+}
+
+.page {
+    width: 100%;
+    max-width: 900px;          /* desktop look preserved */
+    margin: auto;              /* center on all devices */
+    padding: 18px 16px 90px;   /* mobile-safe padding */
+}
+
+/* =====================
+   HEADER (AUTO-SCALE)
+===================== */
+
+/* HEADER – PERFECT ALIGNMENT */
+.header {
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+/* CENTER TITLE */
+.header h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 900;
+}
+
+/* BACK ARROW */
+.back {
+    width: 38px;
+    height: 38px;
+    background: #13ec5b;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+/* =====================
+   CARDS (UNCHANGED STRUCTURE)
+===================== */
+
+.card {
+    background: #ffffffdd;
+    border-radius: 26px;
+    padding: 26px;
+    margin-bottom: 26px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+}
+
+/* =====================
+   TEXT AUTO-SCALING
+===================== */
+
+p, li, span, label {
+    font-size: clamp(14px, 3.8vw, 16px);
+    line-height: 1.5;
+}
+
+h2 {
+    font-size: clamp(18px, 4.5vw, 22px);
+}
+
+/* =====================
+   SYMPTOM CHIPS
+===================== */
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.chip {
+    padding: 12px 18px;
+    border-radius: 22px;
+    background: #fff;
+    border: 2px solid #d1fae5;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-size: clamp(13px, 3.5vw, 15px);
+    white-space: nowrap;
+}
+
+.chip:hover {
+    transform: translateY(-2px);
+}
+
+.chip.active {
+    background: #13ec5b;
+    border-color: #13ec5b;
+    color: #000;
+    font-weight: 600;
+}
+
+/* =====================
+   IMAGE UPLOAD (FLUID)
+===================== */
+
+.upload-box {
+    border: 2px dashed #13ec5b;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#previewGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+#previewGrid img {
+    width: 100%;
+    border-radius: 16px;
+}
+
+/* =====================
+   ENERGY SLIDER
+===================== */
+
+.energy-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: clamp(13px, 3.5vw, 14px);
+    margin-top: 6px;
+}
+
+/* =====================
+   BUTTONS (SCALE, NOT MOVE)
+===================== */
+
+.cta {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.cta button {
+    background: linear-gradient(135deg, #13ec5b, #22c55e);
+    border: none;
+    padding: 18px 42px;
+    border-radius: 26px;
+    font-size: clamp(14px, 4vw, 16px);
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(16,185,129,0.4);
+    transition: transform 0.25s ease;
+}
+
+.cta button:hover {
+    transform: translateY(-3px);
+}
+
+/* =====================
+   AI RESULT BOX
+===================== */
+
+.ai {
+    background: #ffffffee;
+    border-radius: 26px;
+    padding: 26px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+}
+
+/* =====================
+   RISK LABELS
+===================== */
+
+.risk {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 16px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: clamp(13px, 3.5vw, 14px);
+}
+
+.risk.low {
+    background: linear-gradient(135deg, #e7f9ee, #dcfce7);
+    color: #14532d;
+    border: 1px solid #86efac;
+}
+
+.risk.moderate {
+    background: #fff7cc;
+    color: #854d0e;
+}
+
+.risk.high {
+    background: #ffe4e6;
+    color: #991b1b;
+}
+
+.risk.critical {
+    background: #fecaca;
+    color: #7f1d1d;
+    animation: pulse 1.3s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(239,68,68,0.6); }
+    70% { box-shadow: 0 0 0 14px rgba(239,68,68,0); }
+    100% { box-shadow: 0 0 0 0 rgba(239,68,68,0); }
+}
+
+/* =====================
+   WARNING BOX
+===================== */
+
+.warning {
+    background: #fff3cd;
+    padding: 14px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    color: #92400e;
+}
+
+/* =====================
+   FIXED VET BUTTON (SAFE)
+===================== */
+
+.vet-next {
+    position: fixed;
+    bottom: 16px;
+    width: 100%;
+    text-align: center;
+    z-index: 999;
+}
+
+.vet-btn {
+    display: inline-block;
+    padding: 16px 30px;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #fff;
+    border-radius: 22px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 10px 25px rgba(239,68,68,0.4);
+    transition: transform 0.25s ease;
+}
+
+.vet-btn:hover {
+    transform: translateY(-4px);
+}
+
+/* =====================
+   UTILITIES
+===================== */
+
+.hidden {
+    display: none;
+}
+
+/* =====================
+   MOBILE SAFETY ONLY
+===================== */
+
+@media (max-width: 480px) {
+    .vet-btn {
+        width: 90%;
+        font-size: 15px;
+    }
+
+    .card {
+        padding: 20px;
+        border-radius: 22px;
+    }
+}
